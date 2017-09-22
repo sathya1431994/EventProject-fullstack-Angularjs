@@ -1,0 +1,74 @@
+<div class="container">
+    <form>
+        <div>
+            </br>
+            <h3 style="font-family: Times New Roman; font-size: 30px; font-weight: bold; font-variant: small-caps; display:inline">Create Event</h3>
+            <button ui-sref="eventindex" data-ng-click="ad.finalsave()" class="btn btn-default pull-right"><i class="fa fa-file-text" aria-hidden="true"></i> Save</a></button>
+        </div>
+        </br>
+        <div class="form-group">
+            <label for="eventname">EVENT NAME:</label>
+            <input type="text" id="eventname" data-ng-model="ad.eventname" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="eventdate">EVENT DATE:</label>
+            <input type="date" id="eventdate" data-ng-model="ad.eventdate" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="eventstatus">EVENT STATUS:</label>
+            <select type="text" id="eventstatus" data-ng-model="ad.eventstatus" class="form-control" required>
+            <option>True</option>
+            <option>False</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="eventlocation">LOCATION:</label>
+            <input type="text" id="eventlocation" data-ng-model="ad.eventlocation" class="form-control" required>
+        </div>
+    </form>
+    <form>
+        <div>
+            <h3 style="font-family: Times New Roman; font-size: 30px; font-weight: bold; font-variant: small-caps; display:inline">Add Agenda</h3>
+        </div>
+        </br>
+        <div class="form-group">
+            <label for="agendatime">AGENDA TIME :</label>
+            <input class="form-control" id="agendatime" data-ng-model="ad.agendatime" type="text">
+        </div>
+        <div class="form-group">
+            <label for="agendadesc">AGENDA DESC :</label>
+            <input class="form-control" id="agendadesc" data-ng-model="ad.agendadesc" type="text">
+        </div>
+        <div class="form-group">
+            <label for="agendainstruction">AGENDA INSTRUCTION :</label>
+            <input class="form-control" id="agendainstruction" data-ng-model="ad.agendainstruction" type="text">
+        </div>
+        <div>
+            <table class="table" id="agendadatas">
+                <thead>
+                    <tr>
+                        <th>AGENDA_TIME</th>
+                        <th>AGENDA_DESC</th>
+                        <th>AGENDA_INSTRUCTION</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="a in ad.agendas">
+                        <td><span data-ng-bind="a.atime"></span></td>
+                        <td><span data-ng-bind="a.adesc"></span></td>
+                        <td><span data-ng-bind="a.ains"></span></td>
+                        <td><button data-ng-click="ad.editclicked($index)" class="btn btn-default">Edit</button></td>
+                        <td><button data-ng-click="ad.saveclicked($index)" class="btn btn-default">Save</button></td>
+                        <td><button data-ng-click="ad.deleteclicked($index)" class="btn btn-default">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button id="btnadd" data-ng-click="ad.addnew()" class="btn btn-default"><i class="fa fa-plus-square" aria-hidden="true"></i> Add!</button>
+        </div>
+    </form>
+</div>
